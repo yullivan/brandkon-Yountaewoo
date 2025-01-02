@@ -35,4 +35,24 @@ public class ProductService {
                 brand, find.getExpirationDays());
         return detail;
     }
+
+    //인기 상품 목록 조회(카테고리 내에서)
+    public List<ProductResponseDto> popularCategory(Long categoryId) {
+        List<Product> finds = productRepository.findTop5ByBrandCategory_IdOrderBySalesVolumeDesc(categoryId);
+        List<ProductResponseDto> popularCategory = finds.stream()
+                .map(product -> new ProductResponseDto(product.getId(), product.getBrand().getName(), product.getName(),
+                        product.getPrice(), product.getImageUrl()))
+                .toList();
+        return popularCategory;
+    }
+
+    //인기 상품 목록 조회(브랜드 내에서)
+    public List<ProductResponseDto> popularBrand(Long brandId) {
+        List<Product> finds = productRepository.findTop5ByBrandIdOrderBySalesVolumeDesc(brandId);
+        List<ProductResponseDto> popularBrand = finds.stream()
+                .map(product -> new ProductResponseDto(product.getId(), product.getBrand().getName(), product.getName()
+                        , product.getPrice(), product.getImageUrl()))
+                .toList();
+        return popularBrand;
+    }
 }

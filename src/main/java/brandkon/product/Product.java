@@ -18,6 +18,8 @@ public class Product {
 
     private String guidelines;
 
+    private int salesVolume;
+
     @ManyToOne
     private Brand brand;
 
@@ -29,13 +31,15 @@ public class Product {
 
     }
 
-    public Product(Brand brand, int expirationDays, String guidelines, String imageUrl, String name, int price) {
+    public Product(Brand brand, int expirationDays, String guidelines, String imageUrl, String name, int price,
+                   int salesVolume) {
         this.brand = brand;
         this.expirationDays = expirationDays;
         this.guidelines = guidelines;
         this.imageUrl = imageUrl;
         Name = name;
         this.price = price;
+        this.salesVolume = salesVolume;
     }
 
     public String getGuidelines() {

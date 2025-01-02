@@ -29,4 +29,17 @@ public class ProductRestController {
     private DetailProductResponseDto find(@PathVariable long productId) {
         return productService.find(productId);
     }
+
+    //인기 상품 목록 조회
+    @GetMapping("/products/popular")
+    private List<ProductResponseDto> popular(@RequestParam(value = "categoryId", required = false) Long categoryId,
+                                             @RequestParam(value = "brandId", required = false) Long brandId) {
+        if (categoryId != null) {
+            return productService.popularCategory(categoryId);
+        }
+        if (brandId != null) {
+            return productService.popularBrand(brandId);
+        }
+        return null;
+    }
 }
