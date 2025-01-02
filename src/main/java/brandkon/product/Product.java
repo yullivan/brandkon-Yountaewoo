@@ -16,6 +16,8 @@ public class Product {
 
     private int expirationDays;
 
+    private String guidelines;
+
     @ManyToOne
     private Brand brand;
 
@@ -27,12 +29,17 @@ public class Product {
 
     }
 
-    public Product(Brand brand, int expirationDays, String imageUrl, String name, int price) {
+    public Product(Brand brand, int expirationDays, String guidelines, String imageUrl, String name, int price) {
         this.brand = brand;
         this.expirationDays = expirationDays;
+        this.guidelines = guidelines;
         this.imageUrl = imageUrl;
         Name = name;
         this.price = price;
+    }
+
+    public String getGuidelines() {
+        return guidelines;
     }
 
     public int getExpirationDays() {
