@@ -9,7 +9,7 @@ public record DetailProductResponseDto(
         Brand brand,
         int expirationDays
 ) {
-    record Brand(
+    public record Brand(
             long id,
             String name,
             String guidelines
