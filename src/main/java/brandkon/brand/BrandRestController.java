@@ -19,8 +19,8 @@ public class BrandRestController {
 
     // 브랜드 목록 조회
     @GetMapping("/brands")
-    public List<BrandResponseDto> findBrands(@RequestParam("category") String categoryName) {
-        return brandService.findBrands(categoryName);
+    public List<BrandResponseDto> findBrands(@RequestParam("category") String category) {
+        return brandService.findBrands(category);
     }
 
     // 브랜드 상세 조회
