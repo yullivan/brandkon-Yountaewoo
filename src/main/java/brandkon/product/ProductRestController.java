@@ -4,6 +4,7 @@ import brandkon.product.DTO.DetailProductResponseDto;
 import brandkon.product.DTO.ProductResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,8 +20,8 @@ public class ProductRestController {
 
     //상품 목록 조회
     @GetMapping("/products")
-    public List<ProductResponseDto> findAll() {
-        return productService.findALl();
+    public List<ProductResponseDto> findAll(@RequestParam("brandId") Long brandId) {
+        return productService.findALl(brandId);
     }
 
     //상품 상세 조회

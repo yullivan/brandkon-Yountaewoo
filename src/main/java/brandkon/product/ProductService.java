@@ -17,9 +17,9 @@ public class ProductService {
     }
 
     //상품 목록 조회
-    public List<ProductResponseDto> findALl() {
-        List<Product> finds = productRepository.findAll();
-        List<ProductResponseDto> findALl = finds.stream()
+    public List<ProductResponseDto> findALl(Long brandId) {
+        List<Product> byBrandId = productRepository.findByBrandId(brandId);
+        List<ProductResponseDto> findALl = byBrandId.stream()
                 .map(product -> new ProductResponseDto(product.getId(), product.getBrand().getName(),
                         product.getName(), product.getPrice(), product.getImageUrl()))
                 .toList();
