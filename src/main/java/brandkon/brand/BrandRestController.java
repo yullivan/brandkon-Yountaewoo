@@ -3,6 +3,7 @@ package brandkon.brand;
 import brandkon.brand.DTO.BrandResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class BrandRestController {
 
     // 브랜드 목록 조회
     @GetMapping("/brands")
-    public List<BrandResponseDto> findBrands() {
-        return brandService.findBrands();
+    public List<BrandResponseDto> findBrands(@RequestParam("category") String categoryName) {
+        return brandService.findBrands(categoryName);
     }
 
     // 브랜드 상세 조회

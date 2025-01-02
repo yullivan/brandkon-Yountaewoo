@@ -1,6 +1,8 @@
 package brandkon.brand;
 
 import brandkon.brand.DTO.BrandResponseDto;
+import brandkon.category.Category;
+import brandkon.category.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,18 +11,21 @@ import java.util.List;
 public class BrandService {
 
     private final BrandRepository brandRepository;
+    private final CategoryRepository categoryRepository;
 
-    public BrandService(BrandRepository brandRepository) {
+    public BrandService(BrandRepository brandRepository, CategoryRepository categoryRepository) {
         this.brandRepository = brandRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     //브랜드 목록 조회
-    public List<BrandResponseDto> findBrands() {
-        List<Brand> all = brandRepository.findAll();
-        List<BrandResponseDto> finds = all.stream()
+    public List<BrandResponseDto> findBrands(String categoryName) {
+        Category findByName = categoryRepository.findByName(categoryName);
+        List<Brand> findByCategory = brandRepository.findByCategory(findByName);
+        List<BrandResponseDto> findBrands = findByCategory.stream()
                 .map(brand -> new BrandResponseDto(brand.getId(), brand.getName(), brand.getImageUrl()))
                 .toList();
-        return finds;
+        return findBrands;
     }
 
     // 브랜드 상세 조회

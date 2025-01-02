@@ -12,6 +12,8 @@ public class Brand {
 
     private String imageUrl;
 
+    private String guidelines;
+
     @ManyToOne
     private Category category;
 
@@ -22,8 +24,9 @@ public class Brand {
     protected Brand() {
     }
 
-    public Brand(Category category, String imageUrl, String name) {
+    public Brand(Category category, String guidelines, String imageUrl, String name) {
         this.category = category;
+        this.guidelines = guidelines;
         this.imageUrl = imageUrl;
         this.name = name;
     }
