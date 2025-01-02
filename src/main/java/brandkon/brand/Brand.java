@@ -19,6 +19,9 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    protected Brand() {
+    }
+
     public Brand(Category category, String imageUrl, String name) {
         this.category = category;
         this.imageUrl = imageUrl;

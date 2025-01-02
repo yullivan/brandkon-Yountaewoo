@@ -21,6 +21,10 @@ public class PopulatProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    protected PopulatProduct() {
+
+    }
+
     public PopulatProduct(Brand brand, String imageUrl, String name, int price) {
         this.brand = brand;
         this.imageUrl = imageUrl;

@@ -20,6 +20,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    protected Category() {
+    }
+
     public Category(String imageUrl, String name, String slug) {
         this.imageUrl = imageUrl;
         this.name = name;
