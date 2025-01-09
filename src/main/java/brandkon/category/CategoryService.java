@@ -16,8 +16,8 @@ public class CategoryService {
 
     // 카테고리 목록 조회
     public List<CategoryResponseDto> findCategories() {
-        List<Category> all = categoryRepository.findAll();
-        return all.stream()
+        List<Category> categories = categoryRepository.findAll();
+        return categories.stream()
                 .map(category -> new CategoryResponseDto(category.getId(), category.getName(), category.getSlug()
                         , category.getImageUrl()))
                 .toList();
