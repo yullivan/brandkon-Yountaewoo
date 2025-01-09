@@ -27,7 +27,7 @@ public class ProductService {
     }
 
     //상품 상세 조회
-    public DetailProductResponseDto find(long productId) {
+    public DetailProductResponseDto findById(long productId) {
         Product find = productRepository.findById(productId).orElseThrow();
         DetailProductResponseDto.Brand brand = new DetailProductResponseDto.Brand(find.getBrand().getId(),
                 find.getBrand().getName(), find.getBrand().getGuidelines());

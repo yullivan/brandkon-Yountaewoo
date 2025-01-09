@@ -27,7 +27,7 @@ public class ProductRestController {
     //상품 상세 조회
     @GetMapping("/products/{productId}")
     private DetailProductResponseDto find(@PathVariable long productId) {
-        return productService.find(productId);
+        return productService.findById(productId);
     }
 
     //인기 상품 목록 조회
