@@ -25,7 +25,7 @@ public class BrandRestController {
 
     // 브랜드 상세 조회
     @GetMapping("/brands/{brandId}")
-    public BrandResponseDto brand(@PathVariable long brandId) {
+    public BrandResponseDto findById(@PathVariable long brandId) {
         return brandService.findDetailBrand(brandId);
     }
 }
