@@ -47,6 +47,10 @@ public class Brand {
         return name;
     }
 
+    public String getGuidelines() {
+        return guidelines;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
