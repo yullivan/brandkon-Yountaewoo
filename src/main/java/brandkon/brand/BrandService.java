@@ -21,8 +21,8 @@ public class BrandService {
 
     //브랜드 목록 조회
     public List<BrandResponseDto> findBrands(String category) {
-        List<Brand> byCategoryName = brandRepository.findByCategorySlug(category);
-        return byCategoryName.stream()
+        List<Brand> brands = brandRepository.findByCategorySlug(category);
+        return brands.stream()
                 .map(brand -> new BrandResponseDto(brand.getId(), brand.getName(), brand.getImageUrl()))
                 .toList();
 
