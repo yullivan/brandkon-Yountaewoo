@@ -17,7 +17,7 @@ public class ProductService {
     }
 
     //상품 목록 조회
-    public List<ProductResponseDto> findALl(Long brandId) {
+    public List<ProductResponseDto> findAll(Long brandId) {
         List<Product> byBrandId = productRepository.findByBrandId(brandId);
         List<ProductResponseDto> findALl = byBrandId.stream()
                 .map(product -> new ProductResponseDto(product.getId(), product.getBrand().getName(),

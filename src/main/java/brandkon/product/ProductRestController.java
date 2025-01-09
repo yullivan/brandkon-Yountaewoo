@@ -21,7 +21,7 @@ public class ProductRestController {
     //상품 목록 조회
     @GetMapping("/products")
     public List<ProductResponseDto> findAll(@RequestParam("brandId") Long brandId) {
-        return productService.findALl(brandId);
+        return productService.findAll(brandId);
     }
 
     //상품 상세 조회
