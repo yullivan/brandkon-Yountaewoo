@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class BrandRestController {
 
-    private BrandService brandService;
+    private final BrandService brandService;
 
     public BrandRestController(BrandService brandService) {
         this.brandService = brandService;
