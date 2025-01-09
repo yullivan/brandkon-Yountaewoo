@@ -22,10 +22,10 @@ public class BrandService {
     //브랜드 목록 조회
     public List<BrandResponseDto> findBrands(String category) {
         List<Brand> byCategoryName = brandRepository.findByCategorySlug(category);
-        List<BrandResponseDto> findBrands = byCategoryName.stream()
+        return byCategoryName.stream()
                 .map(brand -> new BrandResponseDto(brand.getId(), brand.getName(), brand.getImageUrl()))
                 .toList();
-        return findBrands;
+
     }
 
     // 브랜드 상세 조회
