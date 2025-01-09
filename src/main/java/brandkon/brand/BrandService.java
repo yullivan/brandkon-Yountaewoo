@@ -30,7 +30,6 @@ public class BrandService {
     // 브랜드 상세 조회
     public BrandResponseDto findDetailBrand(long brandId) {
         Brand find = brandRepository.findById(brandId).orElseThrow();
-        BrandResponseDto detailBrand = new BrandResponseDto(find.getId(), find.getName(), find.getImageUrl());
-        return detailBrand;
+        return new BrandResponseDto(find.getId(), find.getName(), find.getImageUrl());
     }
 }
