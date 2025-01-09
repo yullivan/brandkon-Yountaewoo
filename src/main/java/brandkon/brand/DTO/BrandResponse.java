@@ -1,6 +1,6 @@
 package brandkon.brand.DTO;
 
-public record BrandResponseDto(
+public record BrandResponse(
         long id,
         String name,
         String imageUrl

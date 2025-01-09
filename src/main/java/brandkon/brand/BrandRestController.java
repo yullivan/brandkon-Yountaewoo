@@ -1,6 +1,6 @@
 package brandkon.brand;
 
-import brandkon.brand.DTO.BrandResponseDto;
+import brandkon.brand.DTO.BrandResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,13 +19,13 @@ public class BrandRestController {
 
     // 브랜드 목록 조회
     @GetMapping("/brands")
-    public List<BrandResponseDto> findBrands(@RequestParam("category") String category) {
+    public List<BrandResponse> findBrands(@RequestParam("category") String category) {
         return brandService.findBrands(category);
     }
 
     // 브랜드 상세 조회
     @GetMapping("/brands/{brandId}")
-    public BrandResponseDto findById(@PathVariable long brandId) {
+    public BrandResponse findById(@PathVariable long brandId) {
         return brandService.findDetailBrand(brandId);
     }
 }

@@ -1,7 +1,6 @@
 package brandkon.brand;
 
-import brandkon.brand.DTO.BrandResponseDto;
-import brandkon.category.Category;
+import brandkon.brand.DTO.BrandResponse;
 import brandkon.category.CategoryRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,17 +19,17 @@ public class BrandService {
     }
 
     //브랜드 목록 조회
-    public List<BrandResponseDto> findBrands(String category) {
+    public List<BrandResponse> findBrands(String category) {
         List<Brand> brands = brandRepository.findByCategorySlug(category);
         return brands.stream()
-                .map(brand -> new BrandResponseDto(brand.getId(), brand.getName(), brand.getImageUrl()))
+                .map(brand -> new BrandResponse(brand.getId(), brand.getName(), brand.getImageUrl()))
                 .toList();
 
     }
 
     // 브랜드 상세 조회
-    public BrandResponseDto findDetailBrand(long brandId) {
+    public BrandResponse findDetailBrand(long brandId) {
         Brand find = brandRepository.findById(brandId).orElseThrow(() -> new NoSuchElementException("ID를 찾을 수 없습니다: " + brandId));
-        return new BrandResponseDto(find.getId(), find.getName(), find.getImageUrl());
+        return new BrandResponse(find.getId(), find.getName(), find.getImageUrl());
     }
 }
