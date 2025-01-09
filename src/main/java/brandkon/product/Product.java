@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 public class Product {
 
-    private String Name;
+    private String name;
 
     private int price;
 
@@ -37,7 +37,7 @@ public class Product {
         this.expirationDays = expirationDays;
         this.guidelines = guidelines;
         this.imageUrl = imageUrl;
-        Name = name;
+        this.name = name;
         this.price = price;
         this.salesVolume = salesVolume;
     }
@@ -63,7 +63,7 @@ public class Product {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public int getPrice() {
@@ -75,11 +75,11 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return price == product.price && id == product.id && Objects.equals(Name, product.Name) && Objects.equals(imageUrl, product.imageUrl) && Objects.equals(brand, product.brand);
+        return price == product.price && id == product.id && Objects.equals(name, product.name) && Objects.equals(imageUrl, product.imageUrl) && Objects.equals(brand, product.brand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Name, price, imageUrl, brand, id);
+        return Objects.hash(name, price, imageUrl, brand, id);
     }
 }
